@@ -373,7 +373,7 @@ button {
         color: var(--white-color);
     }
 
-    .subscribe-button {
+   .subscribe-button {
         display: flex;
         justify-content: center;
         align-items: center;
