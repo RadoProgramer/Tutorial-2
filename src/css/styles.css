@@ -29,7 +29,7 @@ img {
 }
 
 .container {
-  width: w;
+  width: auto;
   margin: 0 auto;
   padding: 32px 16px;
 }
@@ -57,11 +57,7 @@ img {
   text-align: left;
 }
 
-
-
 /*---------------section About-mobile-----------------*/
-
-
 .container-about {
   margin: 0 auto;
   max-width: 320px;
@@ -97,16 +93,19 @@ img {
     width: 288px;
     height: 178;
 }
+
+@media (min-device-pixel-ratio: 2),
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx){
+    
+  }
 /*------------------------------------------------------*/
 
 
-
-/* tablet styles */
-
+/*--------------section About-tablet-----------------*/
 @media screen and (min-width: 768px) {
 
-
-  /*--------------section About-tablet-----------------*/
 .container-about {
   margin: 0 auto;
   max-width: 768px;
@@ -139,41 +138,329 @@ img {
 .about-ul{
   justify-content: center;
 }
-/*------------------------------------------------------*/
-
-
 }
+/*------------------------------------------------------*/
 
 /*--------------section About-computer----------------*/
 @media screen and (min-width: 1280px){
 
-  .container-about {
-    margin: 0 auto;
-    max-width: 1280px;
-    height: 424px;
-    padding: 0 24px;
+.container-about {
+  margin: 0 auto;
+  max-width: 1280px;
+  height: 424px;
+  padding: 0 24px;
+}
+.about{
+  margin-bottom: 53px;
+}
+.about-text{
+  font-size: 22px;
+  padding: 94px 0 0;
+  line-height: 26.82px;
+  max-width: 510px;
+}
+.image-about{
+  width: 632px;
+  height: 344px;
+  margin-left: 90px;
+}
+}
+/*------------------------------------------------------*/
+  /*--bartek*/
+
+.js-menu-container {
+  display: none;
+}
+
+.js-menu-container.is-open {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--PINK);
+  flex-flow: column;
+  height: 100%;
+}
+
+.menu-links {
+  text-decoration: none;
+  color: var(--WHITE);
+  font-size: 20px;
+  font-weight: 400;
+  display: inline-block;
+  padding-bottom: 26px;
+}
+
+.mobile-menu {
+  display: flex;
+  flex-flow: column;
+  flex-grow: 2;
+  justify-content: center;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.modal-btn-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  background-color: var(--PINK);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 720px;
   }
-  .about{
-    margin-bottom: 53px;
-  }
-  .about-text{
-    font-size: 22px;
-    padding: 94px 0 0;
-    line-height: 26.82px;
-    max-width: 510px;
-  }
-  .image-about{
-    width: 632px;
-    height: 344px;
-    margin-left: 90px;
-  }
-  /*------------------------------------------------------*/
-  
-  
-  }
-  @media (min-device-pixel-ratio: 2),
-  (-webkit-min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx){
-    
-  }
+}
+
+.store {
+}
+
+.store-header-secondary {
+  color: var(--BLACK);
+
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--BLACK);
+  text-align: left;
+}
+
+.store-header-secondary-span {
+  background: var(--WHITE);
+  padding-right: 14px;
+  position: relative;
+  top: 14px;
+}
+
+.store-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.store-list-item {
+}
+.store-list-item-descr {
+}
+
+.store-list-item-descr-h-tertiary {
+  color: var(--BLACK);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 12px;
+  margin-bottom: 6px;
+}
+
+.store-list-item-descr-p {
+  color: var(--BLACK);
+
+  font-family: 'Montserrat';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  opacity: 0.6;
+}
+
+.store-button {
+  background-color: var(--PINK);
+  color: var(--WHITE);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.2;
+  width: 208px;
+  height: 44px;
+  padding: 14px 28px;
+  border-radius: 38px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin: auto;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 47, 66, 0.4);
+  padding: 72px 24px 24px 24px;
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal {
+}
+
+.modal-p {
+  color: yellow;
+}
+
+.close-btn {
+}
+
+/* KONRAD */
+
+.delivery-section h2 {
+  font-family: Montserrat;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: #000;
+  position: relative;
+  margin: 0 0 32px;
+}
+
+.delivery-section h2::after {
+  content: '';
+  width: 148px;
+  height: 1px;
+  background-color: #000;
+  position: absolute;
+  top: 50%;
+  margin-left: 14px;
+}
+
+.delivery-list {
+  counter-reset: item;
+  list-style-type: none;
+  margin: 0;
+}
+
+.delivery-list li {
+  display: flex;
+
+  position: relative;
+  justify-content: space-around;
+}
+
+.delivery-list li span {
+  color: #000;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0 0 14px 8px;
+}
+
+.delivery-list li::before {
+  content: counter(item) '';
+  counter-increment: item;
+  color: black;
+  position: absolute;
+  background-color: transparent;
+  height: 40px;
+  width: 40px;
+  border: 1px solid black;
+  border-radius: 50%;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: -2em;
+}
+
+.delivery-img {
+  margin: 26px 0 0;
+  width: 100%;
+}
+
+.delivery-list li:hover::before {
+  background-color: coral;
+}
+
+/* --Blog Marcin/Bartek-- */
+
+.blog-title-line {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.blog-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-right: 16px;
+}
+
+.line {
+  flex-grow: 1;
+  border-top: 1px solid black;
+}
+
+.flower-list {
+  width: 100%;
+}
+
+.flowers {
+  display: flex;
+  gap: 16px;
+}
+
+.icons {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin: 0 auto;
+}
+
+.blog-text {
+  color: black;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.blog-button-text {
+  color: var(--WHITE);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  font-family: 'Montserrat';
+}
+
+.blog-button {
+  padding-top: 24px;
+  display: flex;
+  width: 170px;
+  height: 40px;
+  padding: 14px 28px;
+  justify-content: center;
+  align-items: center;
+  background-color: #e86f54;
+  border-radius: 38px;
+}
+
+.buttons-blog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* -- Koniec Blog -- */

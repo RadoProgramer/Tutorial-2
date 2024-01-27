@@ -1,5 +1,4 @@
-# parcel-project-template
-
+INSTRUKCJA PRACY W ANEMONE GROUP 8
 ## Zalezności
 
 Na komputerze musi być zainstalowana LTS-wersja [Node.js](https://nodejs.org/en/).
