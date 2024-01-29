@@ -1,12 +1,17 @@
 document.addEventListener('DOMContentLoaded', function () {
   const form = document.querySelector('.contact_us_modal_form_wrapper');
   const nameLabel = document.querySelector('.label_name');
+  const nameLabel_2 = document.querySelector('.label_name_2');
   const nameInput = document.querySelector('.contact_us_name_modal_input');
   const emailLabel = document.querySelector('.label_email');
+  const emailLabel_2 = document.querySelector('.label_email_2');
   const emailInput = document.querySelector('.contact_us_email_modal_input');
   const invalidNameIcon = document.querySelector('.invalid_name_modal_icon');
+  const invalidNameIcon_2 = document.querySelector('.invalid_name_modal_icon_2');
   const invalidEmailIcon = document.querySelector('.invalid_email_modal_icon');
+  const invalidEmailIcon_2 = document.querySelector('.invalid_email_modal_icon_2');
   const sendButton = document.querySelector('.contact_us_modal_button');
+  const sendButton_2 = document.querySelector('.contact_us_modal_button');
 
   form.addEventListener('input', function () {
     const isNameEmpty = nameInput.value.trim() === '';
