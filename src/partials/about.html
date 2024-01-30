@@ -8,9 +8,22 @@
             and joy creating stylish and modern masterpieces. 
             Every bouquet we create is unique as you are.</p></li>
     <li>
-        <img src="./images/image_about@1x.jpg" alt="two orange flowerse" srcset="
-      ./images/image_about@1x.jpg 1x,
-      ./images/image_about@1x.jpg 2x" class="image-about"/></li>
+      <picture>
+        <source
+          srcset="./images/image_about_desktop.jpg, ./images/image_about_desktop@2x.jpg 2x"
+          media="(min-width: 1280px)"
+        />
+        <source
+          srcset="./images/image_about_tablet.jpg, ./images/image_about_tablet@2x.jpg 2x"
+          media="(min-width: 768px)"
+        />
+        <img
+          class="image-about"
+          src="./images/image_about_mobile.jpg"
+          srcset="./images/image_about_mobile@2x.jpg 2x"
+          alt="two orange flowerse"
+        />
+      </picture></li>
   </ul>
  </div>
 </section>
