@@ -16,9 +16,11 @@ body {
 }
 
 .SectionHeader {
-  background-image: url('../images/header-jpg.jpg');
+  background: url('../images/header-jpg.jpg');
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 400%;
+  background-position-x: 10%;
+  background-position-y: 34%;
   height: 230px;
   opacity: 0.9;
 }
