@@ -33,8 +33,19 @@ function createModalTemplate() {
       closeModal();
     }
   });
+
+  const addToWatchedBtn = modalContainer.querySelector('#addToWatchedBtn');
+  const addToQueueBtn = modalContainer.querySelector('#addToQueueBtn');
+
+  addToWatchedBtn.addEventListener('click', () => addToLocalStorage('watchedMovies', selectedMovie));
+  addToQueueBtn.addEventListener('click', () => addToLocalStorage('queueMovies', selectedMovie));
 }
 
+function addToLocalStorage(key, movie) {
+  let movies = JSON.parse(localStorage.getItem(key)) || [];
+  movies.push(movie);
+  localStorage.setItem(key, JSON.stringify(movies));
+}
 function openModal(selectedMovie) {
   const modalContainer = document.querySelector('.modal');
   const movieDetails = document.getElementById('movieDetails');
@@ -87,29 +98,17 @@ function openModal(selectedMovie) {
 
   modalContainer.classList.add('show');
   document.body.classList.add('modal-open');
+  const addToWatchedBtn = document.getElementById('addToWatchedBtn');
+  const addToQueueBtn = document.getElementById('addToQueueBtn');
 
-  document.getElementById('addToWatchedBtn').addEventListener('click', () => addToWatched(selectedMovie));
-  document.getElementById('addToQueueBtn').addEventListener('click', () => addToQueue(selectedMovie));
+  addToWatchedBtn.onclick = () => addToLocalStorage('watchedMovies', selectedMovie);
+  addToQueueBtn.onclick = () => addToLocalStorage('queueMovies', selectedMovie);
 }
 
 function closeModal() {
   const modalContainer = document.querySelector('.modal');
   modalContainer.style.display = 'none';
   document.body.classList.remove('modal-open');
-}
-
-function addToWatched(movie) {
-  let watchedMovies = JSON.parse(localStorage.getItem('watchedMovies')) || [];
-  watchedMovies.push(movie);
-  localStorage.setItem('watchedMovies', JSON.stringify(watchedMovies));
-  alert(`${movie.title} has been added to your watched movies.`);
-}
-
-function addToQueue(movie) {
-  let queue = JSON.parse(localStorage.getItem('queue')) || [];
-  queue.push(movie);
-  localStorage.setItem('queue', JSON.stringify(queue));
-  alert(`${movie.title} has been added to your queue.`);
 }
 
 export { createModalTemplate, openModal, closeModal };
