@@ -2,6 +2,8 @@
 
 import './sass/library_main.scss';
 
+import './sass/library_main.scss';
+
 document.addEventListener('DOMContentLoaded', () => {
   const watchedButton = document.querySelector('.ButtonsWrapper .Buttons:first-child');
   const queueButton = document.querySelector('.ButtonsWrapper .Buttons:last-child');

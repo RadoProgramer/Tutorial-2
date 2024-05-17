@@ -1,5 +1,7 @@
 console.log('hi');
 
+console.log('hi');
+
 import axios from 'axios';
 import { createModalTemplate, openModal } from './modal.js';
 
@@ -91,10 +93,10 @@ fetchMove().then(result => {
     year.textContent = Object.values(element)[1][1];
 
     card.appendChild(img);
-    card.appendChild(title);
+    card.appendChild(details);
+    details.appendChild(title);
     details.appendChild(genre);
     details.appendChild(year);
-    card.appendChild(details);
 
     container.appendChild(card);
 
@@ -115,3 +117,4 @@ fetchMove().then(result => {
     });
   });
 });
+
