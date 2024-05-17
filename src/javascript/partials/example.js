@@ -72,6 +72,7 @@ async function fetchMove() {
     return [];
   }
 }
+
 fetchMove().then(result => {
   console.log(result);
   result.forEach(element => {

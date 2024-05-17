@@ -7,20 +7,14 @@ function createModalTemplate() {
   modalContainer.classList.add('modal');
   modalContainer.innerHTML = `
     <div class="modal-content">
-
       <span class="close">&nbsp;<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path id="Vector 1" d="M8 8L22 22" stroke="black" stroke-width="2"/>
 <path id="Vector 2" d="M8 22L22 8" stroke="black" stroke-width="2"/>
 </svg>&nbsp;</span>
-
       <div id="movieDetails" class="movieDetailsWrapper"></div>
-
       <div class="modal-buttons">
-
-        <button class="watched"id="addToWatchedBtn">Add to Watched</button>
-
+        <button class="watched" id="addToWatchedBtn">Add to Watched</button>
         <button class="queue" id="addToQueueBtn">Add to Queue</button>
-
       </div>
     </div>
   `;
@@ -40,6 +34,7 @@ function createModalTemplate() {
     }
   });
 }
+
 function openModal(selectedMovie) {
   const modalContainer = document.querySelector('.modal');
   const movieDetails = document.getElementById('movieDetails');
@@ -92,12 +87,29 @@ function openModal(selectedMovie) {
 
   modalContainer.classList.add('show');
   document.body.classList.add('modal-open');
+
+  document.getElementById('addToWatchedBtn').addEventListener('click', () => addToWatched(selectedMovie));
+  document.getElementById('addToQueueBtn').addEventListener('click', () => addToQueue(selectedMovie));
 }
 
 function closeModal() {
   const modalContainer = document.querySelector('.modal');
   modalContainer.style.display = 'none';
   document.body.classList.remove('modal-open');
+}
+
+function addToWatched(movie) {
+  let watchedMovies = JSON.parse(localStorage.getItem('watchedMovies')) || [];
+  watchedMovies.push(movie);
+  localStorage.setItem('watchedMovies', JSON.stringify(watchedMovies));
+  alert(`${movie.title} has been added to your watched movies.`);
+}
+
+function addToQueue(movie) {
+  let queue = JSON.parse(localStorage.getItem('queue')) || [];
+  queue.push(movie);
+  localStorage.setItem('queue', JSON.stringify(queue));
+  alert(`${movie.title} has been added to your queue.`);
 }
 
 export { createModalTemplate, openModal, closeModal };
