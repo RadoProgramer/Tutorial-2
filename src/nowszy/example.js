@@ -72,7 +72,6 @@ async function fetchMove() {
     return [];
   }
 }
-
 fetchMove().then(result => {
   console.log(result);
   result.forEach(element => {
@@ -87,7 +86,7 @@ fetchMove().then(result => {
 
     img.src = Object.values(element)[1][0];
     title.textContent = element.key;
-    genre.textContent = Object.values(element)[1][2].join(', ');
+    genre.textContent = Object.values(element)[1][2];
     year.textContent = Object.values(element)[1][1];
 
     card.appendChild(img);
