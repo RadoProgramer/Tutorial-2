@@ -17,7 +17,7 @@ body {
 
 .SectionHeader {
   background-image: url('../images/mobile.jpg');
-  background-repeat: round;
+  background-repeat: no-repeat;
   background-size: cover;
   height: 230px;
   position: fixed;
@@ -26,14 +26,6 @@ body {
   width: 100%;
   background-color: white;
   z-index: 1000;
-<<<<<<< HEAD
-=======
-}
-@media only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi) {
-  .SectionHeader {
-    background-image: url('../images/mobile@2x.jpg');
-  }
->>>>>>> main
 }
 
 .Nav {
@@ -42,9 +34,8 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-.LogoWrapper {
+.LogoHeader {
   display: flex;
-  cursor: pointer;
 }
 .LogoImage {
   display: flex;
@@ -145,11 +136,6 @@ body {
   color: transparent;
 }
 @media screen and (min-width: 591px) {
-  @media only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi) {
-    .SectionHeader {
-      background-image: url('../images/tablet@2x.jpg');
-    }
-  }
   .SectionHeader {
     background-image: url('../images/tablet.jpg');
     height: 219px;
@@ -157,7 +143,7 @@ body {
   .Nav {
     padding: 40px 32px;
   }
-  .LogoWrapper {
+  .LogoHeader {
     gap: 10px;
   }
   .LogoText {

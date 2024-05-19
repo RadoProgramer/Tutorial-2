@@ -12,16 +12,12 @@ body {
 }
 
 .MainHeader {
-  background-image: linear-gradient(#0000008f, #0000008f), url('../images/library_mobile.jpg');
-  background-repeat: round;
-  background-size: cover;
+  background: linear-gradient(#0000008f, #0000008f), url('../images/header_background.jpg');
+  background-repeat: no-repeat;
+  background-size: 400%;
+  background-position-x: 10%;
+  background-position-y: 34%;
   height: 230px;
-}
-
-@media only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi) {
-  .SectionHeader {
-    background-image: url('../images/library_mobile@2x.jpg');
-  }
 }
 
 .Navigation {
@@ -33,7 +29,6 @@ body {
 
 .LogoWraper {
   display: flex;
-  cursor: pointer;
 }
 .ImgCenter {
   display: flex;
@@ -127,16 +122,11 @@ body {
   background-color: aliceblue;
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 425px) {
   .MainHeader {
-    background-repeat: no-repeat;
-    background-image: linear-gradient(#0000008f, #0000008f), url('../images/library_tablet.jpg');
+    background-position: 0% 29%;
+    background-size: 142%;
     height: 219px;
-  }
-  @media only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi) {
-    .SectionHeader {
-      background-image: url('../images/library_tablet@2x.jpg');
-    }
   }
   .Navigation {
     padding: 40px 32px;
@@ -166,9 +156,9 @@ body {
 }
 @media screen and (min-width: 769px) {
   .MainHeader {
-    background-image: linear-gradient(#0000008f, #0000008f), url('../images/library_desktop.jpg');
-    height: 216px;
-    background-position: bottom;
+    background-position: 0 35%;
+    background-position: 0% 29%;
+    background-size: 100%;
   }
   .ButtonsWrapper {
     gap: 16px;
