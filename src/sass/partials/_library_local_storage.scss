@@ -5,7 +5,6 @@
   --WHITE: #fff;
   --BLACK: #000;
 }
-
 body {
   font-family: var(--FONT-FAMILY);
   font-weight: 500;
@@ -16,7 +15,6 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 32px;
-
   @media screen and (min-width: 768px) {
     gap: 32px;
   }
@@ -29,7 +27,6 @@ body {
   margin-bottom: 20px;
   cursor: pointer;
   align-items: baseline;
-
   @media screen and (min-width: 768px) {
     width: 336px;
   }
@@ -63,14 +60,32 @@ body {
     line-height: 1.2;
   }
 }
-
 .card p {
   line-height: 1.33;
   color: var(--ORANGE);
-
   @media screen and (min-width: 1280px) {
     font-size: 20px;
     line-height: 1.2;
   }
 }
-
+.watched-movies-section,
+.queue-section {
+  padding-top: 20px;
+  padding-bottom: 40px;
+  @media screen and (min-width: 768px) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+.card .details {
+  display: flex;
+}
+.card .details p {
+  margin: 0;
+}
+.card .details p:not(:last-child)::after {
+  content: '|';
+  margin-left: 5px;
+  margin-right: 5px;
+  color: var(--ORANGE);
+}
