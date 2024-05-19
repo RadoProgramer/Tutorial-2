@@ -48,7 +48,6 @@ function createModalTemplate() {
 function addToLocalStorage(key, movie) {
   let movies = JSON.parse(localStorage.getItem(key)) || [];
 
-  // Sprawdzenie, czy film już istnieje w odpowiedniej sekcji
   const movieExists = movies.some(existingMovie => existingMovie.title === movie.title);
   if (!movieExists) {
     movies.push(movie);
