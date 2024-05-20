@@ -1,5 +1,3 @@
-// modal.js
-
 function createModalTemplate() {
   const existingModal = document.querySelector('.modal');
   if (existingModal) {
@@ -14,6 +12,10 @@ function createModalTemplate() {
 <path id="Vector 2" d="M8 22L22 8" stroke="black" stroke-width="2"/>
 </svg>&nbsp;</span>
       <div id="movieDetails" class="movieDetailsWrapper"></div>
+      <div class="modal-buttons">
+        <button class="watched" id="addToWatchedBtn">Add to Watched</button>
+        <button class="queue" id="addToQueueBtn">Add to Queue</button>
+      </div>
     </div>
   `;
   document.body.appendChild(modalContainer);
@@ -31,37 +33,21 @@ function createModalTemplate() {
       closeModal();
     }
   });
-}
 
-function showNotification(message) {
-  const notification = document.createElement('div');
-  notification.classList.add('notification');
-  notification.textContent = message;
-  document.body.appendChild(notification);
+  const addToWatchedBtn = modalContainer.querySelector('#addToWatchedBtn');
+  const addToQueueBtn = modalContainer.querySelector('#addToQueueBtn');
 
-  setTimeout(() => {
-    notification.classList.add('visible');
-  }, 10);
-
-  setTimeout(() => {
-    notification.classList.remove('visible');
-    setTimeout(() => {
-      document.body.removeChild(notification);
-    }, 300);
-  }, 3000);
+  addToWatchedBtn.addEventListener('click', () =>
+    addToLocalStorage('watchedMovies', selectedMovie),
+  );
+  addToQueueBtn.addEventListener('click', () => addToLocalStorage('queueMovies', selectedMovie));
 }
 
 function addToLocalStorage(key, movie) {
   let movies = JSON.parse(localStorage.getItem(key)) || [];
-  if (!movies.find(m => m.title === movie.title)) {
-    movies.push(movie);
-    localStorage.setItem(key, JSON.stringify(movies));
-    showNotification(`Movie added to ${key.toUpperCase().replace('MOVIES', '')}`);
-  } else {
-    showNotification(`Movie already in ${key.toUpperCase().replace('MOVIES', '')}`);
-  }
+  movies.push(movie);
+  localStorage.setItem(key, JSON.stringify(movies));
 }
-
 function openModal(selectedMovie) {
   const modalContainer = document.querySelector('.modal');
   const movieDetails = document.getElementById('movieDetails');
@@ -73,9 +59,6 @@ function openModal(selectedMovie) {
   movieImage.alt = selectedMovie.title;
   movieImage.classList.add('modal-movie-image');
 
-  const detailsContainer = document.createElement('div');
-  detailsContainer.classList.add('modal-details-container');
-
   const title = document.createElement('h2');
   title.textContent = selectedMovie.title;
   title.classList.add('modal-movie-title');
@@ -83,19 +66,9 @@ function openModal(selectedMovie) {
   const additionalInfo = document.createElement('div');
   additionalInfo.classList.add('modal-additional-Info');
 
-  const voteAverageSpan = document.createElement('span');
-  voteAverageSpan.textContent = selectedMovie.voteAverage.toFixed(1);
-  voteAverageSpan.classList.add('modal-vote-average');
-
-  const voteCountSpan = document.createElement('span');
-  voteCountSpan.textContent = selectedMovie.voteCount;
-  voteCountSpan.classList.add('modal-vote-count');
-
-  const popularity = selectedMovie.popularity.toFixed(0);
-
   const dataPairs = [
-    { label: 'Vote/Votes', value: `${voteAverageSpan.outerHTML} / ${voteCountSpan.outerHTML}` },
-    { label: 'Popularity', value: popularity },
+    { label: 'Vote/Votes', value: `${selectedMovie.voteAverage} / ${selectedMovie.voteCount}` },
+    { label: 'Popularity', value: selectedMovie.popularity },
     { label: 'Original Title', value: selectedMovie.originalTitle },
     { label: 'Genre', value: selectedMovie.genre },
   ];
@@ -103,10 +76,9 @@ function openModal(selectedMovie) {
   dataPairs.forEach(pair => {
     const paragraph = document.createElement('p');
     paragraph.classList.add('modal-row-wrapper');
-    paragraph.innerHTML = `<div class="modal-data-name-wrapper">${pair.label}</div><div class="modal-data-wrapper">${pair.value}</div>`;
+    paragraph.innerHTML = `<span class="modal-data-name-wrapper">${pair.label}</span>: <span class="modal-data-wrapper">${pair.value}</span>`;
     additionalInfo.appendChild(paragraph);
   });
-
   const aboutSection = document.createElement('div');
   aboutSection.classList.add('modal-overview');
   const aboutSectionTextHead = document.createElement('p');
@@ -116,36 +88,18 @@ function openModal(selectedMovie) {
   aboutSectionText.classList.add('modal-overview-text');
   aboutSectionText.innerHTML = selectedMovie.overview;
 
+  movieDetails.appendChild(movieImage);
+  movieDetails.appendChild(title);
+  movieDetails.appendChild(additionalInfo);
   aboutSection.appendChild(aboutSectionTextHead);
   aboutSection.appendChild(aboutSectionText);
 
-  const buttonContainer = document.createElement('div');
-  buttonContainer.classList.add('modal-buttons');
-
-  const watchedButton = document.createElement('button');
-  watchedButton.classList.add('watched');
-  watchedButton.id = 'addToWatchedBtn';
-  watchedButton.textContent = 'Add to Watched';
-
-  const queueButton = document.createElement('button');
-  queueButton.classList.add('queue');
-  queueButton.id = 'addToQueueBtn';
-  queueButton.textContent = 'Add to Queue';
-
-  buttonContainer.appendChild(watchedButton);
-  buttonContainer.appendChild(queueButton);
-
-  movieDetails.appendChild(movieImage);
-  detailsContainer.appendChild(title);
-  detailsContainer.appendChild(additionalInfo);
-  detailsContainer.appendChild(aboutSection);
-  detailsContainer.appendChild(buttonContainer);
-  movieDetails.appendChild(detailsContainer);
+  movieDetails.appendChild(aboutSection);
 
   modalContainer.style.display = 'block';
+
   modalContainer.classList.add('show');
   document.body.classList.add('modal-open');
-
   const addToWatchedBtn = document.getElementById('addToWatchedBtn');
   const addToQueueBtn = document.getElementById('addToQueueBtn');
 

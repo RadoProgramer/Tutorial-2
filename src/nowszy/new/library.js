@@ -1,3 +1,4 @@
+import './sass/library_main.scss';
 document.addEventListener('DOMContentLoaded', () => {
   const watchedButton = document.querySelector('.ButtonsWrapper .Buttons:first-child');
   const queueButton = document.querySelector('.ButtonsWrapper .Buttons:last-child');
@@ -31,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const img = document.createElement('img');
       img.src = movie.image;
-      img.alt = movie.title; 
 
       const details = document.createElement('div');
       details.classList.add('details');

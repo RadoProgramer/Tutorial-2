@@ -1,3 +1,5 @@
+console.log('hi');
+
 import axios from 'axios';
 import { createModalTemplate, openModal } from './modal.js';
 
@@ -66,11 +68,10 @@ async function fetchMove() {
     });
     return array;
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Wystąpił błąd:', error);
     return [];
   }
 }
-
 fetchMove().then(result => {
   console.log(result);
   result.forEach(element => {
@@ -85,7 +86,7 @@ fetchMove().then(result => {
 
     img.src = Object.values(element)[1][0];
     title.textContent = element.key;
-    genre.textContent = Object.values(element)[1][2].slice(0, 3).join(', ');
+    genre.textContent = Object.values(element)[1][2];
     year.textContent = Object.values(element)[1][1];
 
     card.appendChild(img);
@@ -100,7 +101,7 @@ fetchMove().then(result => {
       const selectedMovie = {
         title: element.key,
         image: Object.values(element)[1][0],
-        genre: Object.values(element)[1][2].join(', '),
+        genre: Object.values(element)[1][2],
         year: Object.values(element)[1][1],
         originalTitle: Object.values(element)[1][3],
         overview: Object.values(element)[1][4],
