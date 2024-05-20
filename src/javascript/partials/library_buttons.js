@@ -1,9 +1,8 @@
-// combined_buttons.js
 
 document.addEventListener('DOMContentLoaded', () => {
-  const watchedButton = document.querySelector('button[data-watched]');
-  const queueButton = document.querySelector('button[data-queue]');
-  const watchedMoviesContainer = document.getElementById('watched-movies-container');
+  const watchedButton = document.querySelector('[data-watched]');
+  const queueButton = document.querySelector('[data-queue]');
+  const watchedContainer = document.getElementById('watched-movies-container');
   const queueContainer = document.getElementById('queue-container');
 
   function renderMovies(movies, container) {
@@ -36,23 +35,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   watchedButton.addEventListener('click', e => {
     if (!watchedButton.classList.contains('SelectedButton')) {
-      watchedMoviesContainer.style.display = 'block';
-      queueContainer.style.display = 'none';
       e.target.classList.add('SelectedButton');
       queueButton.classList.remove('SelectedButton');
-      displayMovies('watchedMovies', watchedMoviesContainer);
+      displayMovies('watchedMovies', watchedContainer);
       queueContainer.innerHTML = '';
     }
   });
 
   queueButton.addEventListener('click', e => {
     if (!queueButton.classList.contains('SelectedButton')) {
-      watchedMoviesContainer.style.display = 'none';
-      queueContainer.style.display = 'block';
       e.target.classList.add('SelectedButton');
       watchedButton.classList.remove('SelectedButton');
       displayMovies('queueMovies', queueContainer);
-      watchedMoviesContainer.innerHTML = '';
+      watchedContainer.innerHTML = '';
     }
   });
 
@@ -61,5 +56,5 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = 'index.html';
   });
 
-  displayMovies('watchedMovies', watchedMoviesContainer);
+  displayMovies('watchedMovies', watchedContainer);
 });
